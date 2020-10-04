@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑리스트앱</title>
+    <script src="https://kit.fontawesome.com/51005d41ce.js" crossorigin="anonymous"></script>
+    <style>
+        @font-face { font-family: 'IBMPlexSansKR-Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff'); font-weight: normal; font-style: normal; }
+        * {margin: 0; padding: 0;}
+        li {list-style: none;}
+        body {font-family: 'IBMPlexSansKR-Regular';}
+        .phone {margin: 20px; width:300px; height:560px; background: linear-gradient(90deg,  #eb88d5a4 1%, #5698eec7 98%); border-radius: 40px; box-shadow: 3px 3px 3px rgba(0,0,0,0.1); }
+        .phone h2 {padding: 12px 0; text-align: center; color:#fff;}
+        .content {padding: 8px 0; height:430px; background: #f3f3f3; overflow: auto; box-sizing: border-box;}
+        .content li {position:relative; padding: 10px 20px;}
+        .content li:hover, .content li:focus {background:#ddd;}
+        .content li .fas {position:absolute; top:15px; right:20px; color:#999; cursor: pointer; transition:0.2s;}
+        .content li .fas:hover, .content li .fas:focus {transform: scale(1.1); color:#f00;}
+        .phone p {margin:10px auto; padding-left:2px; width:24px; height:24px; background:#000; border-radius:100%; cursor: pointer;}
+        .inputText {padding:0 10px; width:100%; height:30px; box-sizing:border-box; border:none; outline: none;}
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <h2>Shopping List</h2>
+        <ul class="content">
+        </ul>
+        <input type="text" class="inputText" onkeypress="if( event.keyCode == 13 ){inputTolist();}">
+        <p class="addBt">➕</p>
+    </div>
+
+    <script>
+        const content = document.querySelector(".content");
+        const item = document.querySelector("input");
+        const addBt = document.querySelector(".addBt");
+
+        // input의 값을 li행으로 추가하기
+        function inputTolist() {
+            const addItem = document.createElement("li");
+            addItem.innerHTML = `<span>${item.value}</span><i class="fas fa-trash-alt"></i>`;
+            if (item.value != "") {
+                content.appendChild(addItem);
+            }
+            item.value = "";
+        }
+
+        // +버튼을 누르거나 enter버튼을 눌렀을 때
+        addBt.addEventListener("click", inputTolist);
+
+
+        // 휴지통 아이콘을 클릭하면 삭제하기
+        content.addEventListener("click", function(e){
+            if (e.target.classList.contains("fas")) {
+                e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+            }
+        })
+
+    </script>
+</body>
+</html>
