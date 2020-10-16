@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "IBMPlexSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+body {
+  font-family: "IBMPlexSansKR-Regular";
+}
+.phone {
+  margin: 20px;
+  width: 300px;
+  height: 560px;
+  background: linear-gradient(90deg, #eb88d5a4 1%, #5698eec7 98%);
+  border-radius: 40px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.phone h2 {
+  padding: 12px 0;
+  text-align: center;
+  color: #fff;
+}
+.content {
+  padding: 8px 0;
+  height: 430px;
+  background: #f3f3f3;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.content li {
+  position: relative;
+  padding: 10px 20px;
+}
+.content li:hover,
+.content li:focus {
+  background: #ddd;
+}
+.content li .fas {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #999;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.content li .fas:hover,
+.content li .fas:focus {
+  transform: scale(1.1);
+  color: #f00;
+}
+.phone p {
+  margin: 10px auto;
+  padding-left: 2px;
+  width: 24px;
+  height: 24px;
+  background: #000;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.inputText {
+  padding: 0 10px;
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
